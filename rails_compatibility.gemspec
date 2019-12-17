@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['khiav reoy']
   spec.email         = ['mrtmrt15xn@yahoo.com.tw']
 
-  spec.summary       = ''
-  spec.description   = ''
+  spec.summary       = 'Provides cross-rails methods for you to upgrade rails, backport features, create easy-to-maintain gems, and so on.'
+  spec.description   = 'Provides cross-rails methods for you to upgrade rails, backport features, create easy-to-maintain gems, and so on.'
   spec.homepage      = 'https://github.com/khiav223577/rails_compatibility'
   spec.license       = 'MIT'
 

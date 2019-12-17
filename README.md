@@ -8,7 +8,9 @@
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Provides cross-rails methods for you to upgrade rails, backport features, create easy-to-maintain gems, and so on.
+Support Rails 3.2, 4.2, 5.0, 5.1, 5.2, 6.0.
+Support Ruby 2.2 ~ 2.6
 
 ```ruby
 gem 'rails_compatibility'
