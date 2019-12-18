@@ -6,6 +6,12 @@ class AttributeTypesTest < Minitest::Test
   end
 
   def test_user
-    assert_equal %w[id name email gender], RailsCompatibility.attribute_types(User).keys
+    expected_attribute_types = {
+      'id'     => :integer,
+      'name'   => :string,
+      'email'  => :string,
+      'gender' => :string,
+    }
+    assert_equal expected_attribute_types, RailsCompatibility.attribute_types(User).transform_values(&:type)
   end
 end

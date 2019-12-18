@@ -26,3 +26,13 @@ def assert_queries(expected_count, event_key = 'sql.active_record')
 ensure
   ActiveSupport::Notifications.unsubscribe(subscriber)
 end
+
+class Hash
+  if not method_defined?(:transform_values)
+    def transform_values
+      hash = {}
+      each{|k, v| hash[k] = yield(v) }
+      return hash
+    end
+  end
+end
