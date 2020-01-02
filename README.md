@@ -6,11 +6,13 @@
 [![Code Climate](https://codeclimate.com/github/khiav223577/rails_compatibility/badges/gpa.svg)](https://codeclimate.com/github/khiav223577/rails_compatibility)
 [![Test Coverage](https://codeclimate.com/github/khiav223577/rails_compatibility/badges/coverage.svg)](https://codeclimate.com/github/khiav223577/rails_compatibility/coverage)
 
+## Supports
+- Ruby 2.2 ~ 2.7
+- Rails 3.2, 4.2, 5.0, 5.1, 5.2, 6.0
+
 ## Installation
 
 Provides cross-rails methods for you to upgrade rails, backport features, create easy-to-maintain gems, and so on.
-Support Rails 3.2, 4.2, 5.0, 5.1, 5.2, 6.0.
-Support Ruby 2.2 ~ 2.6
 
 ```ruby
 gem 'rails_compatibility'
