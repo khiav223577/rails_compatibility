@@ -5,25 +5,39 @@ require 'rails_compatibility/construct_join_dependency'
 require 'rails_compatibility/active_record'
 
 class << RailsCompatibility
-  def build_joins(reflect, relation)
-    join_dependency = construct_join_dependency(reflect, relation)
-
-    if GTE_RAILS_6_1
+  if GTE_RAILS_6_1
+    def build_joins(reflect, relation)
+      join_dependency = construct_join_dependency(reflect, relation)
       joins = join_dependency.join_constraints([], relation.alias_tracker, relation.references_values)
       return joins
-    elsif GTE_RAILS_6_0
+    end
+  elsif GTE_RAILS_6_0
+    def build_joins(reflect, relation)
+      join_dependency = construct_join_dependency(reflect, relation)
       joins = join_dependency.join_constraints([], relation.alias_tracker)
       return joins
-    elsif GTE_RAILS_5_2
+    end
+  elsif GTE_RAILS_5_2
+    def build_joins(reflect, relation)
+      join_dependency = construct_join_dependency(reflect, relation)
       joins = join_dependency.join_constraints([], Arel::Nodes::InnerJoin, relation.alias_tracker)
       return joins
-    elsif GTE_RAILS_5_0
+    end
+  elsif GTE_RAILS_5_0
+    def build_joins(reflect, relation)
+      join_dependency = construct_join_dependency(reflect, relation)
       info = join_dependency.join_constraints([], Arel::Nodes::InnerJoin)[0]
       return info.joins
-    elsif GTE_RAILS_4_0
+    end
+  elsif GTE_RAILS_4_0
+    def build_joins(reflect, relation)
+      join_dependency = construct_join_dependency(reflect, relation)
       info = join_dependency.join_constraints([])[0]
       return info.joins
-    else
+    end
+  else
+    def build_joins(reflect, relation)
+      join_dependency = construct_join_dependency(reflect, relation)
       return join_dependency.join_associations
     end
   end
