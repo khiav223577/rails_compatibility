@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_compatibility'
-require 'active_record'
+require 'rails_compatibility/active_record'
 
 class << RailsCompatibility
   if ActiveRecord::Base.respond_to?(:attribute_types) # column_types was changed to attribute_types in Rails 5
