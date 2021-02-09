@@ -1,7 +1,7 @@
 # RailsCompatibility
 
 [![Gem Version](https://img.shields.io/gem/v/rails_compatibility.svg?style=flat)](http://rubygems.org/gems/rails_compatibility)
-[![Build Status](https://travis-ci.com/khiav223577/rails_compatibility.svg?branch=master)](https://travis-ci.org/khiav223577/rails_compatibility)
+[![Build Status](https://travis-ci.com/khiav223577/rails_compatibility/workflows/Ruby/badge.svg)](https://github.com/khiav223577/rails_compatibility/actions)
 [![RubyGems](http://img.shields.io/gem/dt/rails_compatibility.svg?style=flat)](http://rubygems.org/gems/rails_compatibility)
 [![Code Climate](https://codeclimate.com/github/khiav223577/rails_compatibility/badges/gpa.svg)](https://codeclimate.com/github/khiav223577/rails_compatibility)
 [![Test Coverage](https://codeclimate.com/github/khiav223577/rails_compatibility/badges/coverage.svg)](https://codeclimate.com/github/khiav223577/rails_compatibility/coverage)
