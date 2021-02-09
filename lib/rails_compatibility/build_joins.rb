@@ -6,7 +6,7 @@ require 'rails_compatibility/active_record'
 
 class << RailsCompatibility
   def build_joins(reflect, relation)
-    join_dependency = build_join_dependency(reflect, relation)
+    join_dependency = construct_join_dependency(reflect, relation)
 
     if GTE_RAILS_6_1
       joins = join_dependency.join_constraints([], relation.alias_tracker, relation.references_values)
