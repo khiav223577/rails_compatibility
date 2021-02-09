@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'active_record'
+require 'rails_compatibility/active_record'
 
 class << RailsCompatibility
   if ActiveRecord::VERSION::MAJOR < 4
