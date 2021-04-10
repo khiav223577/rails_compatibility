@@ -37,7 +37,7 @@ end
 
 ActiveSupport::Dependencies.autoload_paths << File.expand_path('../models/', __FILE__)
 
-users = User.create([
+_users = User.create([
   { name: 'Peter', email: 'peter@example.com', gender: 'male' },
   { name: 'Pearl', email: 'pearl@example.com', gender: 'female' },
   { name: 'Doggy', email: 'kathenrie@example.com', gender: 'female' },
