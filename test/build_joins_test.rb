@@ -53,7 +53,9 @@ class BuildJoinsTest < Minitest::Test
     relation = TrainingProgram.where(name: 'program A')
     relation = relation.joins(RailsCompatibility.build_joins(reflect, relation)[0])
     assert_equal relation.ids, relation.pluck('training_programs_training_providers.training_program_id')
+  end
 
+  def test_custom_inverse_association_name
     reflect = TrainingProgram.reflect_on_association(:training_providers)
 
     relation = TrainingProvider.where(name: 'provider X')
