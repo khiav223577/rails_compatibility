@@ -48,6 +48,8 @@ class BuildJoinsTest < Minitest::Test
   end
 
   def test_custom_association_name
+    skip if ActiveRecord::VERSION::MAJOR < 4 # Rails 3 doesn't support inverse_of options in HABTM
+
     reflect = TrainingProvider.reflect_on_association(:borrower_training_programs)
 
     relation = TrainingProgram.where(name: 'program A')
@@ -56,6 +58,8 @@ class BuildJoinsTest < Minitest::Test
   end
 
   def test_custom_inverse_association_name
+    skip if ActiveRecord::VERSION::MAJOR < 4 # Rails 3 doesn't support inverse_of options in HABTM
+
     reflect = TrainingProgram.reflect_on_association(:training_providers)
 
     relation = TrainingProvider.where(name: 'provider X')
