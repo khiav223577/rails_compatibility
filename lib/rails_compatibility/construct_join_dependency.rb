@@ -11,7 +11,7 @@ class << RailsCompatibility
     end
   elsif GTE_RAILS_5_2
     def construct_join_dependency(reflect, relation)
-      association_joins = [reflect.active_record.table_name]
+      association_joins = [reflect.options[:inverse_of] || reflect.active_record.table_name]
 
       join_dependency = ActiveRecord::Associations::JoinDependency.new(reflect.klass, relation.table, association_joins)
 
