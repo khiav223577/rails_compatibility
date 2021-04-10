@@ -20,6 +20,19 @@ ActiveRecord::Schema.define do
     t.string :zip, null: false
     t.string :city, null: false
   end
+
+  create_table :training_programs, force: :cascade do |t|
+    t.string :name
+  end
+
+  create_table :training_providers, force: :cascade do |t|
+    t.string :name
+  end
+
+  create_table :training_programs_training_providers, id: false, force: :cascade do |t|
+    t.references :training_provider, null: false, index: false
+    t.references :training_program, null: false, index: false
+  end
 end
 
 ActiveSupport::Dependencies.autoload_paths << File.expand_path('../models/', __FILE__)
@@ -47,3 +60,10 @@ County.create([
     ],
   },
 ])
+
+TrainingProgram.create!(
+  name: 'program A',
+  training_providers: [
+    TrainingProvider.create!(name: 'provider X'),
+  ],
+)

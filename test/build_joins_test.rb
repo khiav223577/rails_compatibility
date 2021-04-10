@@ -7,7 +7,7 @@ class BuildJoinsTest < Minitest::Test
     @zipcode_ids = Zipcode.all.map{|s| [s.zip, s.id] }.to_h
   end
 
-  def test_has_and_belongs_to_many_when_many_models_mapping_to_one
+  def test_when_many_models_mapping_to_one
     reflect = County.reflect_on_association(:zipcodes)
 
     relation = Zipcode.where(zip: '30301')
@@ -31,7 +31,7 @@ class BuildJoinsTest < Minitest::Test
     assert_equal [], relation.pluck('counties_zipcodes.county_id')
   end
 
-  def test_has_and_belongs_to_many_when_one_models_mapping_to_many
+  def test_many_when_one_models_mapping_to_many
     reflect = Zipcode.reflect_on_association(:counties)
 
     relation = County.where(name: 'Fulton')
@@ -45,5 +45,19 @@ class BuildJoinsTest < Minitest::Test
     relation = County.where(name: '!INVALID!')
     relation = relation.joins(RailsCompatibility.build_joins(reflect, relation)[0])
     assert_equal [], relation.pluck('counties_zipcodes.zipcode_id')
+  end
+
+  def test_custom_association_name
+    reflect = TrainingProvider.reflect_on_association(:borrower_training_programs)
+
+    relation = TrainingProgram.where(name: 'program A')
+    relation = relation.joins(RailsCompatibility.build_joins(reflect, relation)[0])
+    assert_equal relation.ids, relation.pluck('training_programs_training_providers.training_program_id')
+
+    reflect = TrainingProgram.reflect_on_association(:training_providers)
+
+    relation = TrainingProvider.where(name: 'provider X')
+    relation = relation.joins(RailsCompatibility.build_joins(reflect, relation)[0])
+    assert_equal relation.ids, relation.pluck('training_programs_training_providers.training_provider_id')
   end
 end
