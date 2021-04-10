@@ -1,5 +1,8 @@
 ## Change Log
 
+### [v0.0.4](https://github.com/khiav223577/rails_compatibility/compare/v0.0.3...v0.0.4) 2021/04/10
+- [#8](https://github.com/khiav223577/rails_compatibility/pull/8) Fix: join dependency construct wrongly when HABTM associations have custom name (@khiav223577)
+
 ### [v0.0.3](https://github.com/khiav223577/rails_compatibility/compare/v0.0.2...v0.0.3) 2021/02/09
 - [#7](https://github.com/khiav223577/rails_compatibility/pull/7) Implement #build_joins (@khiav223577)
 - [#6](https://github.com/khiav223577/rails_compatibility/pull/6) Support Rails 6.1 (@khiav223577)
