@@ -6,14 +6,14 @@ require 'rails_compatibility/active_record'
 class << RailsCompatibility
   if GTE_RAILS_6_0
     def construct_join_dependency(reflect, relation)
-      association_joins = [reflect.active_record.table_name]
-      return relation.construct_join_dependency(association_joins, Arel::Nodes::InnerJoin)
+      joins = inverse_association_joins(reflect)
+      return relation.construct_join_dependency(joins, Arel::Nodes::InnerJoin)
     end
   elsif GTE_RAILS_5_2
     def construct_join_dependency(reflect, relation)
-      association_joins = [reflect.active_record.table_name]
+      joins = inverse_association_joins(reflect)
 
-      join_dependency = ActiveRecord::Associations::JoinDependency.new(reflect.klass, relation.table, association_joins)
+      join_dependency = ActiveRecord::Associations::JoinDependency.new(reflect.klass, relation.table, joins)
 
       root = join_dependency.send(:join_root)
 
@@ -23,8 +23,14 @@ class << RailsCompatibility
     end
   else
     def construct_join_dependency(reflect, _relation)
-      association_joins = [reflect.active_record.table_name]
-      return ActiveRecord::Associations::JoinDependency.new(reflect.klass, association_joins, [])
+      joins = inverse_association_joins(reflect)
+      return ActiveRecord::Associations::JoinDependency.new(reflect.klass, joins, [])
     end
+  end
+
+  private
+
+  def inverse_association_joins(reflect)
+    [reflect.options[:inverse_of] || reflect.active_record.table_name]
   end
 end
