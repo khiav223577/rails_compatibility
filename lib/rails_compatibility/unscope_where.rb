@@ -3,13 +3,13 @@
 require 'rails_compatibility/active_record'
 
 class << RailsCompatibility
-  if ActiveRecord::VERSION::MAJOR < 4
+  if GTE_RAILS_4_0
     def unscope_where(relation)
-      relation.dup.tap{|s| s.where_values = [] }
+      relation.unscope(:where)
     end
   else
     def unscope_where(relation)
-      relation.unscope(:where)
+      relation.dup.tap{|s| s.where_values = [] }
     end
   end
 end
