@@ -27,6 +27,11 @@ class UnscopeWhereTest < Minitest::Test
   end
 
   def test_pick_none
+    skip if ActiveRecord::VERSION::MAJOR < 4 # Rails 3 doesn't support none
     assert_nil RailsCompatibility.pick(@females.none, :name)
+  end
+
+  def test_pick_no_data
+    assert_nil RailsCompatibility.pick(@females.where('1=0'), :name)
   end
 end
