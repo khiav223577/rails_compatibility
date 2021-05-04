@@ -21,6 +21,11 @@ class UnscopeWhereTest < Minitest::Test
     assert_nil RailsCompatibility.pick(@females.offset(999).order(:id), :name, :gender)
   end
 
+  def test_pick_with_order
+    assert_equal 'Catty', RailsCompatibility.pick(@females.order(name: :asc), :name)
+    assert_equal 'Pearl', RailsCompatibility.pick(@females.order(name: :desc), :name)
+  end
+
   def test_pick_none
     assert_nil RailsCompatibility.pick(@females.none, :name)
   end
