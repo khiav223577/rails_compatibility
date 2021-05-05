@@ -22,8 +22,13 @@ class UnscopeWhereTest < Minitest::Test
   end
 
   def test_pick_with_order
-    assert_equal 'Catty', RailsCompatibility.pick(@females.order(name: :asc), :name)
-    assert_equal 'Pearl', RailsCompatibility.pick(@females.order(name: :desc), :name)
+    assert_equal 'Catty', RailsCompatibility.pick(@females.order('name ASC'), :name)
+    assert_equal 'Pearl', RailsCompatibility.pick(@females.order('name DESC'), :name)
+
+    if ActiveRecord::VERSION::MAJOR >= 4 # Order with hash parameters only available in ActiveRecord >= 4.0
+      assert_equal 'Catty', RailsCompatibility.pick(@females.order(name: :asc), :name)
+      assert_equal 'Pearl', RailsCompatibility.pick(@females.order(name: :desc), :name)
+    end
   end
 
   def test_pick_none
