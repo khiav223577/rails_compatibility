@@ -1,5 +1,9 @@
 ## Change Log
 
+### [v0.0.5](https://github.com/khiav223577/rails_compatibility/compare/v0.0.4...v0.0.5) 2021/05/05
+- [#10](https://github.com/khiav223577/rails_compatibility/pull/10) Implement #pick (@khiav223577)
+- [#9](https://github.com/khiav223577/rails_compatibility/pull/9) refactor: use GTE_RAILS_4_0 (@khiav223577)
+
 ### [v0.0.4](https://github.com/khiav223577/rails_compatibility/compare/v0.0.3...v0.0.4) 2021/04/10
 - [#8](https://github.com/khiav223577/rails_compatibility/pull/8) Fix: join dependency construct wrongly when HABTM associations have custom name (@khiav223577)
 
