@@ -7,6 +7,11 @@ ActiveRecord::Schema.define do
     t.string :gender
   end
 
+  create_table :posts, force: true do |t|
+    t.references :user
+    t.string :title
+  end
+
   create_table :counties, force: true do |t|
     t.string :name, null: false
   end
@@ -37,14 +42,16 @@ end
 
 ActiveSupport::Dependencies.autoload_paths << File.expand_path('../models/', __FILE__)
 
-_users = User.create([
+users = User.create!([
   { name: 'Peter', email: 'peter@example.com', gender: 'male' },
   { name: 'Pearl', email: 'pearl@example.com', gender: 'female' },
   { name: 'Doggy', email: 'kathenrie@example.com', gender: 'female' },
   { name: 'Catty', email: 'catherine@example.com', gender: 'female' },
 ])
 
-County.create([
+Post.create!(user: users[0])
+
+County.create!([
   {
     name: 'Fulton',
     zipcodes: [
