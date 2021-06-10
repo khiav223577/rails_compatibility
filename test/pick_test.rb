@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'rails_compatibility/pick'
 
-class UnscopeWhereTest < Minitest::Test
+class PickTest < Minitest::Test
   def setup
     @females = User.where(gender: 'female')
     @males = User.where(gender: 'male')
