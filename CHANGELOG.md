@@ -1,5 +1,8 @@
 ## Change Log
 
+### [v0.0.7](https://github.com/khiav223577/rails_compatibility/compare/v0.0.6...v0.0.7) 2021/06/10
+- [#12](https://github.com/khiav223577/rails_compatibility/pull/12) Implement #apply_join_dependency (@khiav223577)
+
 ### [v0.0.6](https://github.com/khiav223577/rails_compatibility/compare/v0.0.5...v0.0.6) 2021/06/10
 - [#11](https://github.com/khiav223577/rails_compatibility/pull/11) Implement #has_include? (@khiav223577)
 
