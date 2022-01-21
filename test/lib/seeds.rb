@@ -42,6 +42,13 @@ end
 
 ActiveSupport::Dependencies.autoload_paths << File.expand_path('../models/', __FILE__)
 
+if ActiveRecord::VERSION::MAJOR >= 7
+  require 'zeitwerk'
+  loader = Zeitwerk::Loader.for_gem
+  ActiveSupport::Dependencies.autoload_paths.each{|path| loader.push_dir(path) }
+  loader.setup
+end
+
 users = User.create!([
   { name: 'Peter', email: 'peter@example.com', gender: 'male' },
   { name: 'Pearl', email: 'pearl@example.com', gender: 'female' },
