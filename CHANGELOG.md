@@ -1,5 +1,11 @@
 ## Change Log
 
+### [v0.0.8](https://github.com/khiav223577/rails_compatibility/compare/v0.0.7...v0.0.8) 2022/01/21
+- [#16](https://github.com/khiav223577/rails_compatibility/pull/16) Implement #setup_autoload_paths (@khiav223577)
+- [#15](https://github.com/khiav223577/rails_compatibility/pull/15) Support Rails 7.0 (@khiav223577)
+- [#14](https://github.com/khiav223577/rails_compatibility/pull/14) Support Ruby 3.1 (@khiav223577)
+- [#13](https://github.com/khiav223577/rails_compatibility/pull/13) Support Ruby 3.0 (@khiav223577)
+
 ### [v0.0.7](https://github.com/khiav223577/rails_compatibility/compare/v0.0.6...v0.0.7) 2021/06/10
 - [#12](https://github.com/khiav223577/rails_compatibility/pull/12) Implement #apply_join_dependency (@khiav223577)
 
