@@ -2,6 +2,7 @@
 
 require 'rails_compatibility'
 require 'rails_compatibility/active_record'
+require 'rails_compatibility/attribute_types'
 require 'rails_compatibility/deserialize'
 
 class << RailsCompatibility
