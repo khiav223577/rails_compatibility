@@ -2,6 +2,7 @@
 
 require 'rails_compatibility'
 require 'rails_compatibility/active_record'
+require 'rails_compatibility/deserialize'
 
 class << RailsCompatibility
   if Gem::Version.new(ActiveRecord::VERSION::STRING) >= Gem::Version.new('7.0.6')
@@ -11,7 +12,7 @@ class << RailsCompatibility
 
       result.map do |attributes| # This map behaves different to array#map
         attributes.each_with_index do |(key, attribute), index|
-          attributes[key] = result.send(:column_type, key, index, attribute_types).deserialize(attribute)
+          attributes[key] = deserialize(result.send(:column_type, key, index, attribute_types), attribute)
         end
 
         next attributes
@@ -23,7 +24,7 @@ class << RailsCompatibility
 
       result.map do |attributes| # This map behaves different to array#map
         attributes.each do |key, attribute|
-          attributes[key] = result.send(:column_type, key, attribute_types).deserialize(attribute)
+          attributes[key] = deserialize(result.send(:column_type, key, attribute_types), attribute)
         end
 
         next attributes
