@@ -1,5 +1,8 @@
 ## Change Log
 
+### [v0.0.9](https://github.com/khiav223577/rails_compatibility/compare/v0.0.8...v0.0.9) 2023/07/30
+- [#17](https://github.com/khiav223577/rails_compatibility/pull/17) Implement #cast_values (@khiav223577)
+
 ### [v0.0.8](https://github.com/khiav223577/rails_compatibility/compare/v0.0.7...v0.0.8) 2022/01/21
 - [#16](https://github.com/khiav223577/rails_compatibility/pull/16) Implement #setup_autoload_paths (@khiav223577)
 - [#15](https://github.com/khiav223577/rails_compatibility/pull/15) Support Rails 7.0 (@khiav223577)
