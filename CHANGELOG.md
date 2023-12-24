@@ -1,5 +1,12 @@
 ## Change Log
 
+### [upcoming](https://github.com/khiav223577/rails_compatibility/compare/v0.0.10...HEAD) 2023/12/24
+- [#20](https://github.com/khiav223577/rails_compatibility/pull/20) Support Rails 7.1 (@khiav223577)
+- [#19](https://github.com/khiav223577/rails_compatibility/pull/19) Skip the step of publishing code coverage for the PR from forked repos (@khiav223577)
+
+### [v0.0.10](https://github.com/khiav223577/rails_compatibility/compare/v0.0.9...v0.0.10) 2023/07/30
+- [#18](https://github.com/khiav223577/rails_compatibility/pull/18) Fix: cast_values method dependency (@khiav223577)
+
 ### [v0.0.9](https://github.com/khiav223577/rails_compatibility/compare/v0.0.8...v0.0.9) 2023/07/30
 - [#17](https://github.com/khiav223577/rails_compatibility/pull/17) Implement #cast_values (@khiav223577)
 
