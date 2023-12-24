@@ -4,6 +4,7 @@ require 'rails_compatibility'
 require 'active_record'
 
 class << RailsCompatibility
+  GTE_RAILS_7_1 = Gem::Version.new(ActiveRecord::VERSION::STRING) >= Gem::Version.new('7.1.0')
   GTE_RAILS_7_0 = Gem::Version.new(ActiveRecord::VERSION::STRING) >= Gem::Version.new('7.0.0')
   GTE_RAILS_6_1 = Gem::Version.new(ActiveRecord::VERSION::STRING) >= Gem::Version.new('6.1.0')
   GTE_RAILS_6_0 = Gem::Version.new(ActiveRecord::VERSION::STRING) >= Gem::Version.new('6.0.0')
